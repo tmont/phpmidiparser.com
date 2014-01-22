@@ -1,0 +1,7 @@
+{
+	"name": "phpmidiparser.com",
+	"version": "0.0.1",
+	"devDependencies": {
+		"less": "1.6.1"
+	}
+}
