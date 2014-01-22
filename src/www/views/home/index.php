@@ -5,5 +5,5 @@ PHP MIDI Parser
 
 <?php $this->section('body'); ?>
 <p>
-	Welcome to the body.
+	Hello World!
 </p>
