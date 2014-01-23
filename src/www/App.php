@@ -10,9 +10,12 @@ use Tmont\Facilius\View;
 use Tmont\Facilius\UnknownActionException;
 use Tmont\Facilius\ControllerConstructionException;
 use Tmont\Facilius\RenderingContext;
+use Tmont\BlueShift\Container;
 use Exception;
 
 class App extends WebApplication {
+
+	private $container;
 
 	public function __construct() {
 		parent::__construct(__DIR__ . '/views');
@@ -48,20 +51,24 @@ class App extends WebApplication {
 	}
 
 	protected function onStart() {
-		$this->registerRoute('', array('controller' => 'Home', 'action' => 'index'));
+		$this->initializeContainer();
+		$this
+			->registerRoute('', array('controller' => 'Home', 'action' => 'index'))
+			->registerRoute('download', array('controller' => 'Download', 'action' => 'index'))
+			->registerRoute('docs/{action}', array('controller' => 'Documentation'), array('action' => 'reference|deps|coverage|resources'));
 	}
 
-	/**
-	 * @param string $name
-	 * @return \Tmont\Facilius\Controller
-	 */
+	private function initializeContainer() {
+		$this->container = new Container();
+	}
+
 	protected function createController($name) {
 		$class = __NAMESPACE__ . '\Controllers\\' . $name . 'Controller';
 		if (!class_exists($class) || !in_array('Tmont\Facilius\Controller', class_parents($class))) {
 			return null;
 		}
 
-		$controller = new $class();
+		$controller = $this->container->resolve($class);
 		$controller->setViewLocator(new DefaultViewLocator(__DIR__));
 		return $controller;
 	}
