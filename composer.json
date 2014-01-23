@@ -1,6 +1,7 @@
 {
 	"require": {
 		"tmont/facilius": "1.1.1",
+		"tmont/blueshift": "1.1.0",
 		"tmont/midiparser": "1.1.0"
 	},
 
