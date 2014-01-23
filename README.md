@@ -17,3 +17,13 @@ Once those are installed:
 
 And you're done! Visit http://phpmidiparser.local/ to view the site
 in your browser.
+
+If you want to compile the less files, you will need
+[npm](https://github.com/npm/npm). Run `npm install` to install
+less to `node_modules/.bin/lessc`.
+
+To compile the CSS, run
+
+```bash
+$ node_modules/.bin/lessc src/static/css/phpmidiparser.less src/static/css/phpmidiparser.css
+```
