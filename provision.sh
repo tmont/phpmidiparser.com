@@ -8,4 +8,4 @@ sed -i 's/^bind-address/#bind-address/' /etc/mysql/my.cnf
 restart mysql
 
 cp /vagrant/provision/phpmidiparser.com.conf /etc/nginx/sites-enabled
-/etc/init.d/nginx reload
+/etc/init.d/nginx restart
