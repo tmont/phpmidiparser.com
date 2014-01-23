@@ -6,7 +6,7 @@ it will be once I finish this and update it.
 You will need the following:
 
 - [Vagrant](http://www.vagrantup.com/)
-- [VirtualBox](https://www.virtualbox.org/).
+- [VirtualBox](https://www.virtualbox.org/)
 - [Composer](https://getcomposer.org/)
 
 Once those are installed:
